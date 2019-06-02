@@ -10,14 +10,6 @@ class Student
     new_student
   end
 
-  def self.all
-    sql = <<-SQL
-        SELECT *
-        FROM students
-    SQL
-
-    DB[:conn].execute(sql)
-  end
 
   def self.find_by_name(name)
     # find the student in the database given a name
@@ -75,7 +67,7 @@ class Student
     sql = <<-SQL
     SELECT *
     FROM students
-    WHERE grade < 12
+    WHERE grade <= 11
     SQL
 
     DB[:conn].execute(sql)
